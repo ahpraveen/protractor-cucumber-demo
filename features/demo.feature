@@ -3,6 +3,8 @@ Feature: Angular UI test using Protactor-Cucumber
    I should be able to use Cucumber
    to run my E2E testsFeature Description
 
-Scenario: Run a demo UI test
-    Given I go on "https://angular.io"
-    Then the title should equal "Angular testing" 
+Scenario: add task - angular ui
+   Given I go on 'https://angularjs.org'
+   When I add todo task 'write first protractor test'
+   Then I should see todo list count is incremented to '2'
+   Then I should see my task 'write first protractor test' in todo list
