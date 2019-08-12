@@ -14,11 +14,11 @@ npm install --save-dev protractor-cucumber-framework
 
 3. install mocha
 
-npm install -g mocha
+ npm install -g mocha
 
-npm install chai
+ npm install chai
 
-npm install chai-as-promised
+ npm install chai-as-promised
 
 4. npm install protractor-multiple-cucumber-html-reporter-plugin
 
