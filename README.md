@@ -20,4 +20,10 @@ npm install chai
 
 npm install chai-as-promised
 
+4. npm install protractor-multiple-cucumber-html-reporter-plugin
+
+5. clone the repo, from the root folder and run through command line 
+protractor config.js
+ 
+
 
