@@ -3,10 +3,11 @@ Basic configuration to run your cucumber
 feature files and step definitions with protractor.
 **/
 const path = require('path');
+
 exports.config = {
 
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-       
+    directConnect: true,
+     
     capabilities: {
         browserName:'chrome'
     },
@@ -27,15 +28,35 @@ exports.config = {
       format: 'json:.tmp/results.json',            // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
      },
 
-     plugins: [{
-        path: './node_modules/protractor-multiple-cucumber-html-reporter-plugin',
-        package: 'protractor-multiple-cucumber-html-reporter-plugin',
+     plugins: [{ 
+        package: require.resolve('protractor-multiple-cucumber-html-reporter-plugin'),
         options:{
             // read the options part for more options
             automaticallyGenerateReport: true,
             removeExistingJsonReportFile: true
         }      
     }],
+
+    customData: {
+      title: 'Protractor Cucumber BDD Demo',
+      data: [
+          {label: 'Project', value: 'Demo'},
+          {label: 'Release', value: '1.2.3'},
+          {label: 'Cycle', value: 'B11221.34321'}
+      ]
+  },
+
+  metadata: {
+    browser: {
+        name: 'chrome',
+        version: '58'
+    },
+    device: 'MacBook Pro 15',
+    platform: {
+        name: 'OSX',
+        version: '10.12.6'
+    }
+},
   
    onPrepare: function () {
       browser.manage().window().maximize(); // maximize the browser before executing the feature files
